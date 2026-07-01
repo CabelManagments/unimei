@@ -1,13 +1,13 @@
 // ===== Plush viewer: swipe/arrow gallery over 8 fixed angles =====
 const plushFrames = [
-  { src: 'assets/plush-front.jpg', label: 'спереди' },
-  { src: 'assets/plush-3q-left.jpg', label: 'три четверти слева' },
-  { src: 'assets/plush-side-left.jpg', label: 'профиль слева' },
-  { src: 'assets/plush-back-left.jpg', label: 'сзади слева' },
-  { src: 'assets/plush-front-alt.jpg', label: 'анфас, крупнее' },
-  { src: 'assets/plush-back-right.jpg', label: 'сзади справа' },
-  { src: 'assets/plush-3q-right.jpg', label: 'три четверти справа' },
-  { src: 'assets/plush-bottom-back.jpg', label: 'снизу сзади' },
+  { src: 'https://files.catbox.moe/ta8s4z.jpg', label: 'спереди' },
+  { src: 'https://files.catbox.moe/i43ld5.jpg', label: 'три четверти слева' },
+  { src: 'https://files.catbox.moe/h553oh.jpg', label: 'профиль слева' },
+  { src: 'https://files.catbox.moe/tn9wgq.jpg', label: 'сзади слева' },
+  { src: 'https://files.catbox.moe/0eutdn.jpg', label: 'сзади' },
+  { src: 'https://files.catbox.moe/4rkslq.jpg', label: 'сзади справа' },
+  { src: 'https://files.catbox.moe/urznb3.jpg', label: 'сверху спереди' },
+  { src: 'https://files.catbox.moe/gawms1.jpg', label: 'снизу сзади' },
 ];
 
 (function initPlushViewer() {
