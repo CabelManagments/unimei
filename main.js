@@ -2,29 +2,25 @@
 const toleSectionHTML = `
 <section class="tole-section" id="tole">
   <div class="tole-inner">
-    <p class="eyebrow reveal">рыжий кот · большие глаза</p>
     <h1 class="tole-title reveal">
       Мей Мей
       <span class="alt-name">она же Толе Толе</span>
     </h1>
-    <p class="tole-sub reveal">Вечно немного испуганная, вечно очаровательная. Рыжая шёрстка и огромные тёмные глаза — полная противоположность спокойному Юни.</p>
+    <p class="tole-sub reveal">
+      Рыжая, с огромными глазами, в которых почти всегда написано лёгкое недоумение —
+      будто она только что увидела что-то, чего не ожидала. Полная противоположность
+      невозмутимому Юни.
+    </p>
 
     <div class="tole-gallery">
       <div class="tole-photo reveal">
         <img src="https://files.catbox.moe/4049pg.png" alt="Толе Толе в костюме пчёлки" loading="lazy">
-        <p class="cap">В костюме пчёлки</p>
+        <p class="cap">В костюме пчёлки — не по своей воле, но стойко</p>
       </div>
-      <div class="tole-photo reveal">
+      <div class="tole-photo reveal offset">
         <img src="https://files.catbox.moe/ky97nk.png" alt="Испуганная Толе Толе" loading="lazy">
-        <p class="cap">Классический испуганный взгляд</p>
+        <p class="cap">Тот самый взгляд, который не сходит с лица</p>
       </div>
-    </div>
-
-    <div class="tole-traits">
-      <span class="trait-pill reveal">огромные глаза</span>
-      <span class="trait-pill reveal">рыжая шёрстка</span>
-      <span class="trait-pill reveal">вечно удивлена</span>
-      <span class="trait-pill reveal">любит костюмы</span>
     </div>
   </div>
 </section>
@@ -72,4 +68,3 @@ if (!prefersReducedMotion && !isTouch) {
 // ===== plush slot placeholder — ready for future 3D embed =====
 // When the 3D model is ready, replace #plush-slot contents with the viewer
 // (e.g. a <model-viewer> tag or a Three.js canvas mount point).
-
