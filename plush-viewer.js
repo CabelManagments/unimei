@@ -1,5 +1,7 @@
-// ===== Plush viewer: swipe/arrow gallery over 8 fixed angles =====
-const plushFrames = [
+// ===== Plush viewer: swipe/arrow gallery over fixed angles =====
+// Reusable factory so both Uni's and Mei Mei's plush can use the same logic.
+
+const uniPlushFrames = [
   { src: 'https://files.catbox.moe/ta8s4z.jpg', label: 'спереди' },
   { src: 'https://files.catbox.moe/i43ld5.jpg', label: 'три четверти слева' },
   { src: 'https://files.catbox.moe/h553oh.jpg', label: 'профиль слева' },
@@ -10,20 +12,33 @@ const plushFrames = [
   { src: 'https://files.catbox.moe/gawms1.jpg', label: 'снизу сзади' },
 ];
 
-(function initPlushViewer() {
-  const img = document.getElementById('plush-image');
-  const caption = document.getElementById('plush-caption');
-  const dotsWrap = document.getElementById('plush-dots');
-  const prevBtn = document.getElementById('plush-prev');
-  const nextBtn = document.getElementById('plush-next');
-  const stage = document.querySelector('.plush-stage');
+const meiPlushFrames = [
+  { src: 'https://files.catbox.moe/flmdvm.jpg', label: 'спереди' },
+  { src: 'https://files.catbox.moe/62w6hc.jpg', label: 'три четверти слева' },
+  { src: 'https://files.catbox.moe/186f6j.jpg', label: 'три четверти слева, крупнее' },
+  { src: 'https://files.catbox.moe/b90nfk.jpg', label: 'сзади слева' },
+  { src: 'https://files.catbox.moe/54xc8z.jpg', label: 'сзади' },
+  { src: 'https://files.catbox.moe/or206v.jpg', label: 'сзади справа' },
+  { src: 'https://files.catbox.moe/qisyx5.jpg', label: 'снизу спереди' },
+  { src: 'https://files.catbox.moe/9lieu9.jpg', label: 'снизу сзади' },
+];
+
+function initPlushViewer(rootId, frames, plushName) {
+  const root = document.getElementById(rootId);
+  if (!root) return;
+
+  const img = root.querySelector('.plush-image');
+  const caption = root.querySelector('.plush-caption');
+  const dotsWrap = root.querySelector('.plush-dots');
+  const prevBtn = root.querySelector('.plush-prev');
+  const nextBtn = root.querySelector('.plush-next');
+  const stage = root.querySelector('.plush-stage');
 
   if (!img || !stage) return;
 
   let index = 0;
 
-  // build dots
-  plushFrames.forEach((frame, i) => {
+  frames.forEach((frame, i) => {
     const dot = document.createElement('button');
     dot.className = 'plush-dot' + (i === 0 ? ' active' : '');
     dot.setAttribute('aria-label', frame.label);
@@ -32,11 +47,11 @@ const plushFrames = [
   });
 
   function render() {
-    const frame = plushFrames[index];
+    const frame = frames[index];
     img.classList.add('switching');
     setTimeout(() => {
       img.src = frame.src;
-      img.alt = 'Плюш Юни, вид: ' + frame.label;
+      img.alt = 'Плюш ' + plushName + ', вид: ' + frame.label;
       img.classList.remove('switching');
     }, 120);
     caption.textContent = frame.label;
@@ -46,21 +61,19 @@ const plushFrames = [
   }
 
   function goTo(i) {
-    index = (i + plushFrames.length) % plushFrames.length;
+    index = (i + frames.length) % frames.length;
     render();
   }
 
   prevBtn.addEventListener('click', () => goTo(index - 1));
   nextBtn.addEventListener('click', () => goTo(index + 1));
 
-  // keyboard nav when viewer is focused/hovered
   stage.setAttribute('tabindex', '0');
   stage.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') goTo(index - 1);
     if (e.key === 'ArrowRight') goTo(index + 1);
   });
 
-  // swipe support
   let startX = null;
   stage.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
@@ -74,4 +87,7 @@ const plushFrames = [
     }
     startX = null;
   });
-})();
+}
+
+initPlushViewer('uni-plush-viewer', uniPlushFrames, 'Юни');
+initPlushViewer('mei-plush-viewer', meiPlushFrames, 'Мей Мей');
