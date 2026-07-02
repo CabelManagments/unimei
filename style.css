@@ -235,8 +235,8 @@ img { max-width: 100%; display: block; }
   transition: background 0.2s, border-color 0.2s;
 }
 .plush-nav:hover { border-color: var(--gold); }
-.plush-nav.prev { left: -4px; }
-.plush-nav.next { right: -4px; }
+.plush-nav.plush-prev { left: -4px; }
+.plush-nav.plush-next { right: -4px; }
 .plush-caption {
   text-align: center;
   margin-top: 14px;
@@ -263,6 +263,27 @@ img { max-width: 100%; display: block; }
   background: var(--gold);
   transform: scale(1.3);
 }
+
+/* ===== plush viewer: light variant (on cream tole section) ===== */
+.tole-plush-intro {
+  margin-top: 50px;
+  font-size: 0.98rem;
+  color: #6b6459;
+  max-width: 460px;
+}
+.plush-viewer-light .plush-stage {
+  background: #fff;
+  border-color: #E4DDD0;
+}
+.plush-viewer-light .plush-nav {
+  background: rgba(255,255,255,0.9);
+  border-color: #E4DDD0;
+  color: var(--ink);
+}
+.plush-viewer-light .plush-nav:hover { border-color: var(--rust); }
+.plush-viewer-light .plush-caption { color: #7a7268; }
+.plush-viewer-light .plush-dot { background: #E4DDD0; }
+.plush-viewer-light .plush-dot.active { background: var(--rust); }
 
 /* ===== TOLE section (injected) ===== */
 .tole-section {
@@ -348,8 +369,8 @@ img { max-width: 100%; display: block; }
   .moon-eyes { width: 84px; height: 42px; }
   .plush-viewer { max-width: 100%; }
   .plush-nav { width: 36px; height: 36px; }
-  .plush-nav.prev { left: 4px; }
-  .plush-nav.next { right: 4px; }
+  .plush-nav.plush-prev { left: 4px; }
+  .plush-nav.plush-next { right: 4px; }
 }
 
 /* ===== reduced motion ===== */
