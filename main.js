@@ -22,6 +22,18 @@ const toleSectionHTML = `
         <p class="cap">Тот самый взгляд, который не сходит с лица</p>
       </div>
     </div>
+
+    <p class="tole-plush-intro reveal">Костюм пчёлки прижился и на плюше — тот же наряд, то же вечное удивление.</p>
+
+    <div class="plush-viewer plush-viewer-light reveal" id="mei-plush-viewer">
+      <button class="plush-nav plush-prev" aria-label="Предыдущий ракурс">‹</button>
+      <div class="plush-stage">
+        <img class="plush-image" src="https://files.catbox.moe/flmdvm.jpg" alt="Плюш Мей Мей, вид спереди">
+      </div>
+      <button class="plush-nav plush-next" aria-label="Следующий ракурс">›</button>
+      <div class="plush-caption">спереди</div>
+      <div class="plush-dots"></div>
+    </div>
   </div>
 </section>
 `;
